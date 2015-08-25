@@ -25,7 +25,7 @@ public class ItemDetailFragment extends Fragment {
     /**
      * The fragment argument representing the item ID that this fragment represents.
      */
-    public static final String ARG_ITEM_ID = "item_id";
+    public static final String ID_SAVED_INSTANCE = "id_saved_instance";
 
     //--------------------------------------------------
     // Attributes
@@ -54,10 +54,10 @@ public class ItemDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
+        if (getArguments().containsKey(ID_SAVED_INSTANCE)) {
             // Load the dummy content specified by the fragment arguments. In a real-world scenario,
             // use a Loader to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ID_SAVED_INSTANCE));
         }
     }
 

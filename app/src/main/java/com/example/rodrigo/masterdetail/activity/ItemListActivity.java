@@ -46,7 +46,7 @@ public class ItemListActivity extends FragmentActivity implements ItemListFragme
             mTwoPane = true;
 
             // In two-pane mode, list items should be given the 'activated' state when touched.
-            ((ItemListFragment) getSupportFragmentManager().findFragmentById(R.id.item_list)).setActivateOnItemClick(true);
+            getSupportFragmentManager().findFragmentById(R.id.item_list);
         }
     }
 
@@ -63,14 +63,14 @@ public class ItemListActivity extends FragmentActivity implements ItemListFragme
             // In two-pane mode, show the detail view in this activity by adding or replacing the
             // detail fragment using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(ItemDetailFragment.ARG_ITEM_ID, id);
+            arguments.putString(ItemDetailFragment.ID_SAVED_INSTANCE, id);
             ItemDetailFragment fragment = new ItemDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction().replace(R.id.item_detail_container, fragment).commit();
         } else {
             // In single-pane mode, simply start the detail activity for the selected item ID.
             Intent detailIntent = new Intent(this, ItemDetailActivity.class);
-            detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
+            detailIntent.putExtra(ItemDetailFragment.ID_SAVED_INSTANCE, id);
             startActivity(detailIntent);
         }
     }
